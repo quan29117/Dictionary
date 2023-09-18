@@ -1,0 +1,4 @@
+Hello	Xin chào
+One	Một
+Two	Hai
+Adventure	Hành trình
