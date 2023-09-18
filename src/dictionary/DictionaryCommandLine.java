@@ -28,12 +28,12 @@ public class DictionaryCommandLine {
     public void dictionaryAdvanced() throws IOException {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Welcome to My Application!");
-        System.out.println("[0] Exit\n[1] Add\n[2] Remove\n[3] Update\n[4] Display\n[5] Lookup");
-        System.out.println("[6] Search\n[7] Game\n[8] Import from file\n[9] Export to file");
-        System.out.print("Your action: ");
-
         loop : do {
+            System.out.println("Welcome to My Application!");
+            System.out.println("[0] Exit\n[1] Add\n[2] Remove\n[3] Update\n[4] Display\n[5] Lookup");
+            System.out.println("[6] Search\n[7] Game\n[8] Import from file\n[9] Export to file");
+            System.out.print("Your action: ");
+
             int id = scanner.nextInt();
             scanner.nextLine();
 
@@ -52,7 +52,7 @@ public class DictionaryCommandLine {
                 }
 
                 case 3 -> {
-
+                    dictManagement.editFromCommandline();
                 }
 
                 case 4 -> {
@@ -73,6 +73,9 @@ public class DictionaryCommandLine {
                 case 8 -> dictManagement.insertFromFile();
                 case 9 -> dictManagement.dictionaryExportToFile();
             }
+
+            System.out.print("Press any key to continue...");
+            System.in.read();
         } while (true);
     }
 }

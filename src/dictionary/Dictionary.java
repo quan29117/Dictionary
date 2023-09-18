@@ -20,4 +20,12 @@ public class Dictionary {
     public void addNewWord(String wordTarget, String wordExplain) {
         this.wordArray.put(wordTarget, new Word (wordTarget, wordExplain));
     }
+
+    public boolean hasWord(String wordTarget) {
+        return wordArray.containsKey(wordTarget);
+    }
+
+    public void editWord(String wordTarget, String wordExplain) {
+        this.wordArray.get(wordTarget).editExplain(wordExplain);
+    }
 }

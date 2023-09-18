@@ -71,4 +71,18 @@ public class DictionaryManagement {
     public Word dictionaryLookup(String wordTarget) {
         return dictionary.getWord(wordTarget);
     }
+
+    public void editFromCommandline() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the word: ");
+        String wordTarget = scanner.nextLine();
+        if (dictionary.getWordArray().containsKey(wordTarget)) {
+            System.out.print("Enter the meaning: ");
+            String wordExplain = scanner.nextLine();
+            dictionary.editWord(wordTarget, wordExplain);
+        } else {
+            System.out.println("The word isn't existed, please try again. ");
+        }
+    }
 }

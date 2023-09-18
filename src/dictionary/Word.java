@@ -1,8 +1,8 @@
 package dictionary;
 
 public class Word {
-    private final String word_target;
-    private final String word_explain;
+    private String word_target;
+    private String word_explain;
 
     public Word(String word_target, String word_explain) {
         this.word_target = word_target;
@@ -11,5 +11,13 @@ public class Word {
 
     public String getExplain() {
         return this.word_explain;
+    }
+
+    public void editTarget(String wordTarget) {
+        this.word_target = wordTarget;
+    }
+
+    public void editExplain(String wordExplain) {
+        this.word_explain = wordExplain;
     }
 }
