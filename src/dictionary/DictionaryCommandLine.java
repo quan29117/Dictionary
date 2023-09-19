@@ -81,7 +81,7 @@ public class DictionaryCommandLine {
                 }
             }
 
-            System.out.print("Press any key to continue...");
+            System.out.print("Press ENTER to continue...");
             scanner.nextLine();
         } while (true);
     }

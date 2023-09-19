@@ -1,4 +1,5 @@
+Adventure	Hành trình
 Hello	Xin chào
+Morning	Sáng
 One	Một
 Two	Hai
-Adventure	Hành trình

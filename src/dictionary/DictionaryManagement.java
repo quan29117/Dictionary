@@ -1,9 +1,6 @@
 package dictionary;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
@@ -51,19 +48,22 @@ public class DictionaryManagement {
         while (scanner.hasNextLine()) {
             String lineFetched = scanner.nextLine();
             String[] wordsArr = lineFetched.split("\t");
-            dictionary.addNewWord(wordsArr[0], wordsArr[1]);
+            if (wordsArr.length == 2)
+                dictionary.addNewWord(wordsArr[0], wordsArr[1]);
+            else System.out.println("Error input: " + wordsArr.length + " words");
         }
 
         scanner.close();
     }
 
     public void dictionaryExportToFile() throws IOException {
-        FileWriter fw = new FileWriter(new File("./data/dictionaries.txt"));
-        for (Map.Entry<String, Word> mapElement : dictionary.getEntrySet()) {
-            String wordTarget = mapElement.getKey();
-            String wordExplain = mapElement.getValue().getExplain();
-            String line = wordTarget + "\t" + wordExplain + "\n";
-            fw.write(line);
+        try (PrintWriter pw = new PrintWriter(new File("./data/dictionaries.txt"))) {
+            for (Map.Entry<String, Word> mapElement : dictionary.getEntrySet()) {
+                String wordTarget = mapElement.getKey();
+                String wordExplain = mapElement.getValue().getExplain();
+                String line = wordTarget + "\t" + wordExplain;
+                pw.println(line);
+            }
         }
     }
 
