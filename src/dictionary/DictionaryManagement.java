@@ -1,6 +1,10 @@
 package dictionary;
 
-import java.io.*;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
@@ -67,13 +71,6 @@ public class DictionaryManagement {
         }
     }
 
-    public void dictionaryLookup() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Target: ");
-        String wordTarget = scanner.nextLine();
-        System.out.println("Meaning: " + dictionary.getWord(wordTarget).getExplain());
-    }
-
     public void editFromCommandline() {
         Scanner scanner = new Scanner(System.in);
 
@@ -95,5 +92,22 @@ public class DictionaryManagement {
         if (dictionary.hasWord(wordTarget))
             dictionary.removeWord(wordTarget);
         else System.out.println("The word isn't existed, please try again.");
+    }
+
+    public void dictionaryLookup() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Target: ");
+        String wordTarget = scanner.nextLine();
+        if (dictionary.hasWord(wordTarget))
+            System.out.println("Meaning: " + dictionary.getWord(wordTarget).getExplain());
+        else System.out.println("The word isn't existed.");
+    }
+
+    public void dictionarySearcher() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Target: ");
+        String wordTarget = scanner.nextLine();
+        Set<String> keyTarget = dictionary.getTailMap(wordTarget);
+        System.out.println(keyTarget);
     }
 }

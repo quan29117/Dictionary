@@ -13,11 +13,9 @@ public class Word {
         return this.word_explain;
     }
 
-    public void editTarget(String wordTarget) {
+    public void editWord(String wordTarget, String wordExplain) {
         this.word_target = wordTarget;
-    }
-
-    public void editExplain(String wordExplain) {
         this.word_explain = wordExplain;
     }
+
 }

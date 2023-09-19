@@ -65,12 +65,13 @@ public class DictionaryCommandLine {
                 }
 
                 case 6 -> {
-
+                    dictManagement.dictionarySearcher();
                 }
 
                 case 7 -> {
 
                 }
+
                 case 8 -> {
                     dictManagement.insertFromFile();
                     System.out.println("The data has been imported!");

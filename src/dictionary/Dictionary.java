@@ -19,6 +19,10 @@ public class Dictionary {
         return wordArray.entrySet();
     }
 
+    public Set<String> getTailMap(String wordTarget) {
+        return wordArray.tailMap(wordTarget).keySet();
+    }
+
     public void addNewWord(String wordTarget, String wordExplain) {
         this.wordArray.put(wordTarget, new Word(wordTarget, wordExplain));
     }
@@ -28,7 +32,7 @@ public class Dictionary {
     }
 
     public void editWord(String wordTarget, String wordExplain) {
-        this.wordArray.get(wordTarget).editExplain(wordExplain);
+        this.wordArray.get(wordTarget).editWord(wordTarget, wordExplain);
     }
 
     public void removeWord(String wordTarget) {

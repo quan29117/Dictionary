@@ -1,5 +1,8 @@
 Adventure	Hành trình
 Hello	Xin chào
-Morning	Sáng
+Morning	Buổi sáng
 One	Một
 Two	Hai
+Translate	Dịch
+Transform	Thay đổi
+Transport	Vận chuyển
