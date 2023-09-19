@@ -61,7 +61,7 @@ public class DictionaryCommandLine {
                 }
 
                 case 5 -> {
-
+                    dictManagement.dictionaryLookup();
                 }
 
                 case 6 -> {

@@ -69,8 +69,11 @@ public class DictionaryManagement {
         }
     }
 
-    public Word dictionaryLookup(String wordTarget) {
-        return dictionary.getWord(wordTarget);
+    public void dictionaryLookup() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Target: ");
+        String wordTarget = scanner.nextLine();
+        System.out.println("Meaning: " + dictionary.getWord(wordTarget).getExplain());
     }
 
     public void editFromCommandline() {
