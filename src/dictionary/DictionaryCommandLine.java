@@ -49,7 +49,7 @@ public class DictionaryCommandLine {
                 }
 
                 case 2 -> {
-
+                    dictManagement.removeFromCommandLine();
                 }
 
                 case 3 -> {
@@ -82,7 +82,7 @@ public class DictionaryCommandLine {
             }
 
             System.out.print("Press any key to continue...");
-            System.in.read();
+            scanner.nextLine();
         } while (true);
     }
 }

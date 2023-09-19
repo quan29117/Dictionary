@@ -43,8 +43,6 @@ public class DictionaryManagement {
 
             dictionary.addNewWord(wordTarget, wordExplain);
         }
-
-        scanner.close();
     }
 
     public void insertFromFile() throws FileNotFoundException {
@@ -86,8 +84,6 @@ public class DictionaryManagement {
             String wordExplain = scanner.nextLine();
             dictionary.editWord(wordTarget, wordExplain);
         } else System.out.println("The word isn't existed, please try again.");
-
-        scanner.close();
     }
 
     public void removeFromCommandLine() {
@@ -99,7 +95,5 @@ public class DictionaryManagement {
         if (dictionary.hasWord(wordTarget))
             dictionary.removeWord(wordTarget);
         else System.out.println("The word isn't existed, please try again.");
-
-        scanner.close();
     }
 }
