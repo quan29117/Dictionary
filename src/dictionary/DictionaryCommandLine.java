@@ -19,7 +19,7 @@ public class DictionaryCommandLine {
         printWordLine("No", "English", "Vietnamese");
 
         int no = 0;
-        for (Map.Entry<String, Word> mapElement : dictManagement.getDictionary().getWordArray().entrySet()) {
+        for (Map.Entry<String, Word> mapElement : dictManagement.getEntrySet()) {
             no++;
             printWordLine(String.valueOf(no), mapElement.getKey(), mapElement.getValue().getExplain());
         }
@@ -28,7 +28,8 @@ public class DictionaryCommandLine {
     public void dictionaryAdvanced() throws IOException {
         Scanner scanner = new Scanner(System.in);
 
-        loop : do {
+        loop:
+        do {
             System.out.println("Welcome to My Application!");
             System.out.println("[0] Exit\n[1] Add\n[2] Remove\n[3] Update\n[4] Display\n[5] Lookup");
             System.out.println("[6] Search\n[7] Game\n[8] Import from file\n[9] Export to file");
@@ -39,7 +40,7 @@ public class DictionaryCommandLine {
 
             switch (id) {
                 case 0 -> {
-                    System.out.println("Goodbye Master");
+                    System.out.print("Goodbye Master");
                     break loop;
                 }
 
@@ -70,8 +71,14 @@ public class DictionaryCommandLine {
                 case 7 -> {
 
                 }
-                case 8 -> dictManagement.insertFromFile();
-                case 9 -> dictManagement.dictionaryExportToFile();
+                case 8 -> {
+                    dictManagement.insertFromFile();
+                    System.out.println("The data has been imported!");
+                }
+                case 9 -> {
+                    dictManagement.dictionaryExportToFile();
+                    System.out.println("The data has been exported!");
+                }
             }
 
             System.out.print("Press any key to continue...");
