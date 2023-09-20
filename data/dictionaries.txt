@@ -4,5 +4,3 @@ Morning	Buổi sáng
 One	Một
 Two	Hai
 Translate	Dịch
-Transform	Thay đổi
-Transport	Vận chuyển
