@@ -12,7 +12,9 @@ public class DictionaryCommandLine {
     }
 
     private void printWordLine(String num, String English, String Vietnamese) {
-        System.out.println(num + "    " + English + "    " + Vietnamese);
+        String space1 = " ".repeat(6 - num.length());
+        String space2 = " ".repeat(12 - English.length());
+        System.out.println(num + space1 + "| " + English + space2 + "| " + Vietnamese);
     }
 
     public void showAllWords() {
@@ -27,13 +29,10 @@ public class DictionaryCommandLine {
 
     public void dictionaryAdvanced() throws IOException {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to My Application!");
 
         loop:
         do {
-            System.out.print("\u001b[2J");
-            System.out.flush();
-
-            System.out.println("Welcome to My Application!");
             System.out.println("[0] Exit\n[1] Add\n[2] Remove\n[3] Update\n[4] Display\n[5] Lookup");
             System.out.println("[6] Search\n[7] Game\n[8] Import from file\n[9] Export to file");
             System.out.print("Your action: ");
@@ -84,7 +83,6 @@ public class DictionaryCommandLine {
                     System.out.println("The data has been exported!");
                 }
             }
-
 
 
             System.out.print("Press ENTER to continue...");

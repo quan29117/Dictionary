@@ -47,7 +47,7 @@ public class DictionaryManagement {
     }
 
     public void insertFromFile() throws FileNotFoundException {
-        Scanner scanner = new Scanner(new File("./data/dictionaries.txt"));
+        Scanner scanner = new Scanner(new File("E:\\Study\\UET\\2023_2024\\Term_1\\OOP\\OOP_Dictionary\\data\\dictionaries.txt"));
 
         while (scanner.hasNextLine()) {
             String lineFetched = scanner.nextLine();
@@ -61,7 +61,7 @@ public class DictionaryManagement {
     }
 
     public void dictionaryExportToFile() throws IOException {
-        try (PrintWriter pw = new PrintWriter(new File("./data/dictionaries.txt"))) {
+        try (PrintWriter pw = new PrintWriter(new File("E:\\Study\\UET\\2023_2024\\Term_1\\OOP\\OOP_Dictionary\\data\\dictionaries.txt"))) {
             for (Map.Entry<String, Word> mapElement : dictionary.getEntrySet()) {
                 String wordTarget = mapElement.getKey();
                 String wordExplain = mapElement.getValue().getExplain();
