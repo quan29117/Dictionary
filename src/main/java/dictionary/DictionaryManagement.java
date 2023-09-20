@@ -12,8 +12,8 @@ import java.util.Set;
 public class DictionaryManagement {
     private final Dictionary dictionary;
 
-    public DictionaryManagement(Dictionary dictionary) {
-        this.dictionary = dictionary;
+    public DictionaryManagement() {
+        dictionary = new Dictionary();
     }
 
     public Set<Map.Entry<String, Word>> getEntrySet() {

@@ -5,10 +5,10 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class DictionaryCommandLine {
-    private final DictionaryManagement dictManagement;
+    private final DictionaryManagement dictionaryManagement;
 
-    public DictionaryCommandLine(Dictionary dictionary) {
-        this.dictManagement = new DictionaryManagement(dictionary);
+    public DictionaryCommandLine() {
+        this.dictionaryManagement = new DictionaryManagement();
     }
 
     private void printWordLine(String num, String English, String Vietnamese) {
@@ -19,7 +19,7 @@ public class DictionaryCommandLine {
         printWordLine("No", "English", "Vietnamese");
 
         int no = 0;
-        for (Map.Entry<String, Word> mapElement : dictManagement.getEntrySet()) {
+        for (Map.Entry<String, Word> mapElement : dictionaryManagement.getEntrySet()) {
             no++;
             printWordLine(String.valueOf(no), mapElement.getKey(), mapElement.getValue().getExplain());
         }
@@ -30,6 +30,9 @@ public class DictionaryCommandLine {
 
         loop:
         do {
+            System.out.print("\u001b[2J");
+            System.out.flush();
+
             System.out.println("Welcome to My Application!");
             System.out.println("[0] Exit\n[1] Add\n[2] Remove\n[3] Update\n[4] Display\n[5] Lookup");
             System.out.println("[6] Search\n[7] Game\n[8] Import from file\n[9] Export to file");
@@ -45,15 +48,15 @@ public class DictionaryCommandLine {
                 }
 
                 case 1 -> {
-                    dictManagement.insertFromCommandline();
+                    dictionaryManagement.insertFromCommandline();
                 }
 
                 case 2 -> {
-                    dictManagement.removeFromCommandLine();
+                    dictionaryManagement.removeFromCommandLine();
                 }
 
                 case 3 -> {
-                    dictManagement.editFromCommandline();
+                    dictionaryManagement.editFromCommandline();
                 }
 
                 case 4 -> {
@@ -61,11 +64,11 @@ public class DictionaryCommandLine {
                 }
 
                 case 5 -> {
-                    dictManagement.dictionaryLookup();
+                    dictionaryManagement.dictionaryLookup();
                 }
 
                 case 6 -> {
-                    dictManagement.dictionarySearcher();
+                    dictionaryManagement.dictionarySearcher();
                 }
 
                 case 7 -> {
@@ -73,14 +76,16 @@ public class DictionaryCommandLine {
                 }
 
                 case 8 -> {
-                    dictManagement.insertFromFile();
+                    dictionaryManagement.insertFromFile();
                     System.out.println("The data has been imported!");
                 }
                 case 9 -> {
-                    dictManagement.dictionaryExportToFile();
+                    dictionaryManagement.dictionaryExportToFile();
                     System.out.println("The data has been exported!");
                 }
             }
+
+
 
             System.out.print("Press ENTER to continue...");
             scanner.nextLine();
