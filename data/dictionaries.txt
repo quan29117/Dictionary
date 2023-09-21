@@ -3,6 +3,6 @@ Hello	Xin chào
 Morning	Buổi sáng
 One	Một
 Two	Hai
-Translate	Dịch
+Translate	Phiên dịch
 Transform	Thay đổi
 Transport	Vận chuyển
