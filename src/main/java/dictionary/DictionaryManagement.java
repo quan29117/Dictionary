@@ -114,6 +114,7 @@ public class DictionaryManagement {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter target: ");
         String wordTarget = scanner.nextLine();
+
         DictionaryCommandLine.showWords(partialSearch(wordTarget).entrySet());
     }
 }
