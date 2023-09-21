@@ -5,9 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class DictionaryManagement {
     private final Dictionary dictionary;
@@ -17,7 +15,7 @@ public class DictionaryManagement {
     }
 
     public Set<Map.Entry<String, Word>> getEntrySet() {
-        return dictionary.getEntrySet();
+        return dictionary.getWordArray().entrySet();
     }
 
     public void insertFromCommandline() {
@@ -62,7 +60,7 @@ public class DictionaryManagement {
 
     public void dictionaryExportToFile() throws IOException {
         try (PrintWriter pw = new PrintWriter(new File("E:\\Study\\UET\\2023_2024\\Term_1\\OOP\\OOP_Dictionary\\data\\dictionaries.txt"))) {
-            for (Map.Entry<String, Word> mapElement : dictionary.getEntrySet()) {
+            for (Map.Entry<String, Word> mapElement : dictionary.getWordArray().entrySet()) {
                 String wordTarget = mapElement.getKey();
                 String wordExplain = mapElement.getValue().getExplain();
                 String line = wordTarget + "\t" + wordExplain;
@@ -103,11 +101,19 @@ public class DictionaryManagement {
         else System.out.println("The word isn't existed.");
     }
 
+    private SortedMap <String, Word> partialSearch(String wordTarget) {
+        if (!wordTarget.isEmpty()) {
+            char nextLetter = (char) (wordTarget.charAt(wordTarget.length() - 1) + 1);
+            String end = wordTarget.substring(0, wordTarget.length()-1) + nextLetter;
+            return dictionary.getWordArray().subMap(wordTarget, end);
+        }
+        return dictionary.getWordArray();
+    }
+
     public void dictionarySearcher() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Target: ");
+        System.out.print("Enter target: ");
         String wordTarget = scanner.nextLine();
-        Set<String> keyTarget = dictionary.getTailMap(wordTarget);
-        System.out.println(keyTarget);
+        DictionaryCommandLine.showWords(partialSearch(wordTarget).entrySet());
     }
 }

@@ -3,6 +3,7 @@ package dictionary;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 public class DictionaryCommandLine {
     private final DictionaryManagement dictionaryManagement;
@@ -11,17 +12,17 @@ public class DictionaryCommandLine {
         this.dictionaryManagement = new DictionaryManagement();
     }
 
-    private void printWordLine(String num, String English, String Vietnamese) {
+    static private void printWordLine(String num, String English, String Vietnamese) {
         String space1 = " ".repeat(6 - num.length());
         String space2 = " ".repeat(12 - English.length());
         System.out.println(num + space1 + "| " + English + space2 + "| " + Vietnamese);
     }
 
-    public void showAllWords() {
+    static public void showWords(Set<Map.Entry<String, Word>> entrySet) {
         printWordLine("No", "English", "Vietnamese");
 
         int no = 0;
-        for (Map.Entry<String, Word> mapElement : dictionaryManagement.getEntrySet()) {
+        for (Map.Entry<String, Word> mapElement : entrySet) {
             no++;
             printWordLine(String.valueOf(no), mapElement.getKey(), mapElement.getValue().getExplain());
         }
@@ -59,7 +60,7 @@ public class DictionaryCommandLine {
                 }
 
                 case 4 -> {
-                    this.showAllWords();
+                    showWords(dictionaryManagement.getEntrySet());
                 }
 
                 case 5 -> {

@@ -11,16 +11,10 @@ public class Dictionary {
         this.wordArray = new TreeMap<String, Word>();
     }
 
+    public TreeMap<String, Word> getWordArray() {return wordArray;}
+
     public Word getWord(String wordTarget) {
         return wordArray.get(wordTarget);
-    }
-
-    public Set<Map.Entry<String, Word>> getEntrySet() {
-        return wordArray.entrySet();
-    }
-
-    public Set<String> getTailMap(String wordTarget) {
-        return wordArray.tailMap(wordTarget).keySet();
     }
 
     public void addNewWord(String wordTarget, String wordExplain) {
